@@ -12,14 +12,15 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <QueryClientProvider client={queryClient}></QueryClientProvider>
-        <ToastContainer position="top-right" autoClose={3000} />
-        <Suspense fallback={"Loading"}>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-          </Routes>
-        </Suspense>
+        <QueryClientProvider client={queryClient}>
+          <ToastContainer position="top-right" autoClose={3000} />
+          <Suspense fallback={"Loading"}>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </Suspense>
+        </QueryClientProvider>
       </div>
     </BrowserRouter>
   );

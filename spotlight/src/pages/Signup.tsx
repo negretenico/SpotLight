@@ -4,19 +4,21 @@ import { ComponentProps } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../query/keys";
 import { QUERY_FUNCTIONS } from "../query/functions";
+import { RegisterRequest } from "../types/auth";
 
 export default function Signup() {
-  const mutate = useMutation({
+  const { mutate } = useMutation({
     mutationKey: [QUERY_KEYS.register],
-    mutationFn: (e: React.SyntheticEvent<HTMLFormElement>) => {
-      e.preventDefault();
+    mutationFn: (registerInformation: RegisterRequest) => {
       return QUERY_FUNCTIONS.register({
-        registerInformation: new FormData(e.target as HTMLFormElement),
+        registerInformation: registerInformation,
       });
     },
   });
   const inputs: ComponentProps<typeof Form>["inputProps"] = [
     {
+      name: "email",
+      required: true,
       placeholder: "Email",
       autoComplete: "off",
       autoCorrect: "off",
@@ -24,6 +26,8 @@ export default function Signup() {
         "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
     },
     {
+      name: "password",
+      required: true,
       placeholder: "Password",
       className:
         "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
@@ -32,6 +36,8 @@ export default function Signup() {
       autoCorrect: "off",
     },
     {
+      //name: "fullName", TODO: add this to the schema
+      required: true,
       placeholder: "Full name",
       autoComplete: "off",
       autoCorrect: "off",
@@ -39,6 +45,8 @@ export default function Signup() {
         "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
     },
     {
+      name: "username",
+      required: true,
       placeholder: "Username",
       autoComplete: "off",
       autoCorrect: "off",
@@ -46,6 +54,13 @@ export default function Signup() {
         "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
     },
   ];
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const registerInformation = Object.fromEntries(
+      new FormData(e.target as HTMLFormElement),
+    ) as RegisterRequest;
+    mutate(registerInformation);
+  };
   return (
     <div className="container flex justify-center mt-2">
       <div className="grid-rows-2 max-w-lg w-full text-center">
@@ -57,7 +72,7 @@ export default function Signup() {
             </p>
           </div>
           <Form
-            onSubmit={mutate.mutate}
+            onSubmit={handleSubmit}
             inputProps={inputs}
             btnProps={{
               title: "Sign up today!",
