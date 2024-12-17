@@ -5,3 +5,8 @@ CREATE TABLE Users (
     password TEXT NOT NULL
 );
 
+CREATE TABLE BlacklistToken(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    token TEXT UNIQUE NOT NULL,
+    expirationTime DATE
+)

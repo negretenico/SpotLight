@@ -1,10 +1,12 @@
 package com.spotlight.system.controller;
 
 import com.spotlight.system.model.User;
+import com.spotlight.system.model.auth.AuthenticationLogoutRequest;
 import com.spotlight.system.model.auth.AuthenticationRequest;
 import com.spotlight.system.model.auth.AuthenticationResponse;
 import com.spotlight.system.model.utils.RegistrationStatus;
 import com.spotlight.system.service.AuthenticateSaveService;
+import com.spotlight.system.service.model.LogoutService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,9 +17,11 @@ import java.util.Optional;
 @RequestMapping(value = "/api/auth")
 public class AuthController {
     AuthenticateSaveService authenticateSaveService;
+    LogoutService logoutService;
 
-    public AuthController(AuthenticateSaveService authenticateSaveService) {
+    public AuthController(AuthenticateSaveService authenticateSaveService, LogoutService logoutService) {
         this.authenticateSaveService = authenticateSaveService;
+        this.logoutService = logoutService;
     }
 
     @PostMapping(value = "/register")
@@ -41,5 +45,11 @@ public class AuthController {
         Optional<String> possibleToken = authenticateSaveService.login(authenticationRequest);
         return possibleToken.map(token -> ResponseEntity.ok(AuthenticationResponse.builder().accessToken(token).build()))
                 .orElse(ResponseEntity.badRequest().body(AuthenticationResponse.builder().error("Could not create token").build()));
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(@RequestBody AuthenticationLogoutRequest logoutRequest) {
+        logoutService.logout(logoutRequest.getAccessToken());
+        return ResponseEntity.ok("Logged out successfully");
     }
 }

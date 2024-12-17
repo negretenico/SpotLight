@@ -59,4 +59,14 @@ public class JWTService {
     public String getUsernameFromJwt(String authToken) {
         return Jwts.parserBuilder().setSigningKey(getKey()).build().parseClaimsJws(authToken).getBody().getSubject();
     }
+
+    // Method to get expiration time from JWT
+    public Date getExpirationTimeFromJwt(String authToken) {
+        return Jwts.parserBuilder()
+                .setSigningKey(getKey())
+                .build()
+                .parseClaimsJws(authToken)
+                .getBody()
+                .getExpiration(); // Extract expiration date from claims
+    }
 }
