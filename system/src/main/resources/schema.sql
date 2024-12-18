@@ -22,33 +22,33 @@ CREATE TABLE Followers (
 
 CREATE TABLE Post (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    userId INT,
+    user_id INT,
     content TEXT,
     image TEXT,
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Comment (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    postId INT,
-    userId INT,
+    post_id INT,
+    user_id INT,
     content TEXT,
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (postId) REFERENCES Post(id) ON DELETE CASCADE,
-    FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (post_id) REFERENCES Post(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Likes (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    userId INT,
-    postId INT NULL,
-    commentId INT NULL,
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (postId) REFERENCES Post(id) ON DELETE CASCADE,
-    FOREIGN KEY (commentId) REFERENCES Comment(id) ON DELETE CASCADE,
-    CHECK (postId IS NOT NULL OR commentId IS NOT NULL)
+    user_id INT,
+    post_id INT NULL,
+    comment_id INT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
+    FOREIGN KEY (post_id) REFERENCES Post(id) ON DELETE CASCADE,
+    FOREIGN KEY (comment_id) REFERENCES Comment(id) ON DELETE CASCADE,
+    CHECK (post_id IS NOT NULL OR comment_id IS NOT NULL)
 );
 
 
@@ -67,18 +67,18 @@ CREATE TABLE Likes (
 --SELECT
 --    p.id AS post_id,
 --    p.content,
---    p.createdAt,
+--    p.created_at,
 --    (SELECT COUNT(*) FROM Likes WHERE postId = p.id) AS like_count,
 --    (SELECT COUNT(*) FROM Comment WHERE postId = p.id) AS comment_count
 --FROM Post p
 --WHERE p.userId = 1  -- Replace 1 with the specific user ID
---ORDER BY p.createdAt DESC;
+--ORDER BY p.created_at DESC;
 --
 ---- signle post  with likes and comments
 --SELECT
 --    p.id AS post_id,
 --    p.content,
---    p.createdAt,
+--    p.created_at,
 --    (SELECT COUNT(*) FROM Likes WHERE postId = p.id) AS like_count,
 --    (SELECT COUNT(*) FROM Comment WHERE postId = p.id) AS comment_count,
 --    (SELECT GROUP_CONCAT(c.content SEPARATOR '; ')
@@ -92,7 +92,7 @@ CREATE TABLE Likes (
 --SELECT
 --    p.id AS post_id,
 --    p.content,
---    p.createdAt,
+--    p.created_at,
 --    u.username,
 --    (SELECT COUNT(*) FROM Likes WHERE postId = p.id) AS like_count,
 --    (SELECT COUNT(*) FROM Comment WHERE postId = p.id) AS comment_count
@@ -100,5 +100,5 @@ CREATE TABLE Likes (
 --JOIN Users u ON p.userId = u.id
 --JOIN Followers f ON p.userId = f.following_id
 --WHERE f.follower_id = 1  -- Replace 1 with the current user's ID
---ORDER BY p.createdAt DESC
+--ORDER BY p.created_at DESC
 --LIMIT 50;  -- Limit to 50 most recent posts, adjust as needed

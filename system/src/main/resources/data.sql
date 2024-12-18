@@ -1,50 +1,79 @@
-insert into Users (id, email, username, password) values (1, 'lfriman0@tuttocitta.it', 'mbenardeau0', '$2a$04$8Tdus15pU6aNgZh9r/nJWOfrKJgX3ttpYE/6F4pB6PPNnT2tVlQ2u');
-insert into Users (id, email, username, password) values (2, 'eblondin1@twitpic.com', 'kdurrand1', '$2a$04$XnuUDwchvwi5/bBfvVrzOu5rgBJhvrJ6VvLHPyQReOAzFEj61qskG');
-insert into Users (id, email, username, password) values (3, 'tstrugnell2@webs.com', 'callabush2', '$2a$04$1GGfi/KDN.IYIyKpU0cNMuAsiEDUx6OW/ugZDySUyFktpWe5LkAqe');
-insert into Users (id, email, username, password) values (4, 'ggregolin3@nifty.com', 'mbirkett3', '$2a$04$6c/mtPCKAi4vintRqt1ugeSNhNu6PXaEEPmLkrJo9N7.u8OxiO.JG');
-insert into Users (id, email, username, password) values (5, 'jwinterscale4@mail.ru', 'jtuckley4', '$2a$04$Shv5y3.q10djiY44BXJGcO8XQ3n80A7acSD8tKreKJwDh6Zwm4F4i');
-insert into Users (id, email, username, password) values (6, 'hmuat5@creativecommons.org', 'sgovan5', '$2a$04$k8LKVggbYLso6rbMwLexJeC7Hd29eYUSbizedb0TwE0YGsuoRNizK');
-insert into Users (id, email, username, password) values (7, 'fmoorerud6@marriott.com', 'mlochran6', '$2a$04$Idp9wu4Cccr1vaS4XVGtmePcRvyVwOsFrl8x2UcqSxtDW/8mYnCzO');
-insert into Users (id, email, username, password) values (8, 'pmilella7@ezinearticles.com', 'tastman7', '$2a$04$2sFBKdNJmGgZDUHLteBqWutMENssy4NmvVTyacYySk7zsWkJmbE02');
-insert into Users (id, email, username, password) values (9, 'lbyrde8@amazon.co.jp', 'ytoplis8', '$2a$04$xxY8sYM7ZIa9yU9HMe5B1Og8lSAchKwLPAEnQLYVdTsZlzlwQLG4e');
-insert into Users (id, email, username, password) values (10, 'bguerrazzi9@ifeng.com', 'fgoward9', '$2a$04$d8G6BAPqN1voNP2l1uF32OYmEIqJxdpX8BzSwF.I2PswrovVAx042');
-insert into Users (id, email, username, password) values (11, 'dwichera@ehow.com', 'psweedya', '$2a$04$XLvbSOsp/sx4CRBJr2agUu6QTQZr.D3XurWqPRJC8SXCtGwSRApVK');
-insert into Users (id, email, username, password) values (12, 'sbloxholmb@google.com.br', 'kshenfischb', '$2a$04$k/P6YPuUYs9aUPWj.TW73uGB.dVxrcBbys9JSNZxxJjj/UTmCOweq');
-insert into Users (id, email, username, password) values (13, 'fhuckc@sphinn.com', 'gjudsonc', '$2a$04$xMFcV5h4xZE4PbDduixMfuMh8MzWlxRq9Z7qDOGWVqO5hhurJ0G9q');
-insert into Users (id, email, username, password) values (14, 'gbleadend@jugem.jp', 'rtaudevind', '$2a$04$CrrcCsckllgVv3v2moZNkuNIk331IvEsJxp4E3Z00rwfbCR2cxJs6');
-insert into Users (id, email, username, password) values (15, 'cplomere@ucoz.ru', 'tcortone', '$2a$04$zEEggc.2Os4YYoco0WTVd.tWMWPg20OMTdMwKWfvFu95tafNoHqXy');
-insert into Users (id, email, username, password) values (16, 'hlysaghtf@house.gov', 'ghulancef', '$2a$04$t6MJVWxJc.P9SiO7b8i2Cus0bN3j2gvCM6pmeEfj.oNnkMjwkvB2O');
-insert into Users (id, email, username, password) values (17, 'dbonicellig@techcrunch.com', 'cyatemang', '$2a$04$zkTDOjzVuChwBVp8Me6HQ.Z1EvoFy5GVvgmtqtg/ScL.MO.coXml6');
-insert into Users (id, email, username, password) values (18, 'ggomesh@marketwatch.com', 'fgassonh', '$2a$04$DDahMCgYGqbSQz8zK9YZf.8SvACVV53I4R85ygzl1dp3N5wS9nm3S');
-insert into Users (id, email, username, password) values (19, 'msheftoni@shutterfly.com', 'mstrobandi', '$2a$04$cHuOL5nexGdoUH1Al8Bh5.hAo10QFekGZSJ5OhAXr06DZDPML055u');
-insert into Users (id, email, username, password) values (20, 'cbirchillj@spotify.com', 'amazilliusj', '$2a$04$U/5B0zWC9vm9Pk1EZaw5/uLIFNGMaLpukeMG2ZukrnLyZZ4oLTjoq');
-insert into Users (id, email, username, password) values (21, 'fdunbobink@usa.gov', 'ktiversk', '$2a$04$RdWWbpCkNNI6PN31yYDPeOub22HLi8AybYB26lpotX/OsQOuUX8Kq');
-insert into Users (id, email, username, password) values (22, 'cwiperl@cbc.ca', 'psamesl', '$2a$04$y2ENxwoYBJJci58zB3Np6.guEbTF7JA5FVBOO.zlBScMhSiu8zTLa');
-insert into Users (id, email, username, password) values (23, 'aleatherlandm@dell.com', 'mlangstonm', '$2a$04$ypt2ohXtYJXEXe/k9SRYdupls/V5qHS3yw6E5bBCUUhpTad2vCU1W');
-insert into Users (id, email, username, password) values (24, 'smckerronn@ocn.ne.jp', 'nmotionn', '$2a$04$bU9gKLzLetvE8pPnQynX5OtdZxAFujBBs5CwSkiTJGq4lP8njrObu');
-insert into Users (id, email, username, password) values (25, 'tliepinao@elegantthemes.com', 'cjewkeso', '$2a$04$nvt0JOMEFRguPyJEi9VrvOTZCXQy/vmvtiwAwO1P6c0rCJBKjB96.');
-insert into Users (id, email, username, password) values (26, 'dgoozeep@hud.gov', 'lnelp', '$2a$04$9Flr//YtdnalfZBuFq1t5uuKtL6QocninCsUBej5RkqYKRwtdKO82');
-insert into Users (id, email, username, password) values (27, 'leaklyq@time.com', 'bjagsonq', '$2a$04$EQ5.ayp9kYFx8TX7WnJ7x.tRDakDORj.2McPLvkec0tEnp5vKlt7m');
-insert into Users (id, email, username, password) values (28, 'emacintoshr@rakuten.co.jp', 'sstogglesr', '$2a$04$MuyIooKuYbb3t8otJxUi2udIUO.iUxGLJi8lSHbXufTdFU2unXahu');
-insert into Users (id, email, username, password) values (29, 'cbycrafts@umich.edu', 'crowneys', '$2a$04$FM67Q8oRjWqs9N5DRktD9.tjSHWq5mbp4brY6eN8Hb003u.WZXR7y');
-insert into Users (id, email, username, password) values (30, 'ltettersellt@printfriendly.com', 'mgittingst', '$2a$04$pPwh1UGjrNw/kgkjKUDhfObiWNcF5He1SHlyOAnlz78lHygYDbo/O');
-insert into Users (id, email, username, password) values (31, 'epaschou@thetimes.co.uk', 'rleysu', '$2a$04$fubuWsPvervXJn7PUIa2G.DpSN4HkVFCawD.r.qU7neIcRNA3P2hS');
-insert into Users (id, email, username, password) values (32, 'nloveredgev@yahoo.com', 'ageerev', '$2a$04$8C23WvlcVdYiN6mMINObluHJHib0hdGE.oj1NkZhrHW7x/ldRviwG');
-insert into Users (id, email, username, password) values (33, 'dfeatherstonhalghw@odnoklassniki.ru', 'zboxenw', '$2a$04$3YlazuC.ilvEjlUXvCxybO0THWli6wdN0aMXyo8DgVVAwlkI9OAPS');
-insert into Users (id, email, username, password) values (34, 'plafoyx@freewebs.com', 'nciscox', '$2a$04$mxFb2ONLhz2ysBG8LjLAh.UfHd0/lDw7q0LG.A90WOmLrF/kgTJ1e');
-insert into Users (id, email, username, password) values (35, 'ofronczaky@usa.gov', 'odugdaley', '$2a$04$yvOU9Tdh.SFJQiGgr5tWWeTqXI3uw/6mCEloi4X4ysohUMEMnKQvi');
-insert into Users (id, email, username, password) values (36, 'mscapelhornz@npr.org', 'tpaddenz', '$2a$04$SUdJR8aePM/57J7DXY.REujfAs4hwmlWDIN8BUmdQS710CIWOcfKq');
-insert into Users (id, email, username, password) values (37, 'skevane10@amazon.co.jp', 'igratland10', '$2a$04$gvz0DaxglGXZEDrL1x1VhOOyr0WbvzWZV9C/wEaDbPKQSexmcUW5S');
-insert into Users (id, email, username, password) values (38, 'drudolph11@t.co', 'vdanton11', '$2a$04$lwbZffeVRNVHiP.nvqhPhORE20WffwzAHnG3T3eyVG7vvtkeMgoBK');
-insert into Users (id, email, username, password) values (39, 'cludvigsen12@yellowbook.com', 'ckabisch12', '$2a$04$Lo/sQHsWL7zXTDB1m82lGeG3nEqXKdtnOaXSj0tGxcFywTT9/n1Fe');
-insert into Users (id, email, username, password) values (40, 'dmccrisken13@goo.ne.jp', 'lcrickmoor13', '$2a$04$ktn8a7W1ZOyHbrrXRETLxuGXp.LXOAhG5pIos/I7jl6rbRqGo5KPe');
-insert into Users (id, email, username, password) values (41, 'gpotteridge14@zimbio.com', 'brayner14', '$2a$04$6yHNC./TwFnecsM7XqF6LeDoSAHJEsMBGNDRb7dNRpuCo5SLEl7Te');
-insert into Users (id, email, username, password) values (42, 'sfumagallo15@barnesandnoble.com', 'bschwier15', '$2a$04$FIUVdt4Mg/WDR2NdHd7rleQll/5epAHxfoPfPU7my5GF54k4qa4DO');
-insert into Users (id, email, username, password) values (43, 'ssargood16@arstechnica.com', 'rhainey16', '$2a$04$i45XlfwM3LGU3uqYeA3JDuLRK0jmI7LEClnSrtSVUumi1efdnPxJW');
-insert into Users (id, email, username, password) values (44, 'fgregorace17@imgur.com', 'lmenauteau17', '$2a$04$ZcSv.8DIpnImSJL4Dr4BL.xY05xy0/hO1mRDApoDw7dHlgUODsnpS');
-insert into Users (id, email, username, password) values (45, 'mstange18@twitpic.com', 'oturri18', '$2a$04$uMzinzj/ioPhyPCrEme.POJOrPJuEHdp04nYdB21w6bJwftKJ1l86');
-insert into Users (id, email, username, password) values (46, 'aleaton19@statcounter.com', 'fskeffington19', '$2a$04$L/Y9tcbhie6IcGXNaZj77ORdekB3Y.B86lMOR4GO115yNQVT6f1Bq');
-insert into Users (id, email, username, password) values (47, 'mstrafen1a@lycos.com', 'kreisenstein1a', '$2a$04$KxkvIR5.NFQF9bqhP9O6keXG.uqb.T69GCOqjsadGEVpfupBEgA5O');
-insert into Users (id, email, username, password) values (48, 'mfenemore1b@slideshare.net', 'bchapier1b', '$2a$04$HZAJROvxxtVZI5KecN3uUOhHOOkGp3wAZRyFzUnItfgDEF2RQhk.m');
-insert into Users (id, email, username, password) values (49, 'sgillbard1c@ifeng.com', 'tdaine1c', '$2a$04$TVi0Pp5F/5iZ0RmWdaPdC.ZuNTdAqCpO2xqM76/VVHoIlT5.xagQC');
-insert into Users (id, email, username, password) values (50, 'pdmitriev1d@themeforest.net', 'pagastina1d', '$2a$04$2HwNKVgaBHPQK0ZNLtSsou/s9KlnzHC07aNOv0/w1YbeG1rXJp7jm');
+-- Users
+INSERT INTO Users (email, username, password) VALUES
+('john.doe@email.com', 'johndoe', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2B2'),
+('jane.smith@email.com', 'janesmith', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2B2'),
+('mike.wilson@email.com', 'mikewilson', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2B2'),
+('sarah.parker@email.com', 'sarahp', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2B2'),
+('alex.turner@email.com', 'alexturner', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2B2'),
+('emily.white@email.com', 'emilywhite', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2B2'),
+('david.brown@email.com', 'davidbrown', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2B2'),
+('lisa.garcia@email.com', 'lisagarcia', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2B2'),
+('chris.lee@email.com', 'chrislee', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2B2'),
+('amanda.taylor@email.com', 'amandataylor', '$2a$10$xPPF1P2k1B2B2B2B2B2B2O2B2B2B2B2B2B2B2B2B2B2B2B2B2');
+
+-- Followers
+INSERT INTO Followers (follower_id, following_id) VALUES
+(1, 2), (1, 3), (1, 4), (1, 5),
+(2, 1), (2, 3), (2, 4),
+(3, 1), (3, 2), (3, 5),
+(4, 1), (4, 2), (4, 5),
+(5, 1), (5, 3), (5, 4),
+(6, 1), (6, 2), (6, 7),
+(7, 6), (7, 8), (7, 9),
+(8, 7), (8, 9), (8, 10),
+(9, 7), (9, 8), (9, 10),
+(10, 6), (10, 7), (10, 8);
+
+-- Posts
+INSERT INTO Post (user_id, content, image) VALUES
+(1, 'Just had an amazing coffee at the new cafe downtown!', NULL),
+(2, 'Beautiful sunset today! #nature', '/images/sunset.jpg'),
+(3, 'Working on a new project. So excited!', NULL),
+(4, 'Found this awesome hiking trail! #outdoors', '/images/trail.jpg'),
+(5, 'Just finished reading an incredible book', NULL),
+(1, 'Making progress on my fitness goals', NULL),
+(2, 'Trying out a new recipe tonight', '/images/food.jpg'),
+(3, 'Great day at the beach!', '/images/beach.jpg'),
+(4, 'Just adopted a puppy! Meet Max', '/images/puppy.jpg'),
+(5, 'Celebrating my birthday with friends!', '/images/party.jpg'),
+(6, 'First day at my new job!', NULL),
+(7, 'Finally finished that painting I have been working on', '/images/art.jpg'),
+(8, 'Movie night with the family', NULL),
+(9, 'Just ran my first marathon!', '/images/marathon.jpg'),
+(10, 'Learning to play guitar', NULL),
+(1, 'Visited the new museum exhibition today', '/images/museum.jpg'),
+(2, 'Made my first homemade pasta!', '/images/pasta.jpg'),
+(3, 'Early morning yoga session', NULL),
+(4, 'Started a new garden project', '/images/garden.jpg'),
+(5, 'Exploring the city on my new bike', NULL);
+
+-- Comments
+INSERT INTO Comment (post_id, user_id, content) VALUES
+(1, 2, 'Which cafe? I need to try it!'),
+(1, 3, 'Looks cozy!'),
+(2, 1, 'Stunning view!'),
+(2, 4, 'Perfect timing for that shot!'),
+(3, 5, 'Cannot wait to hear more about it!'),
+(4, 1, 'Where is this trail?'),
+(5, 2, 'What book was it?'),
+(6, 3, 'Keep it up!'),
+(7, 4, 'Recipe please!'),
+(8, 5, 'Perfect beach day!');
+
+-- Likes
+INSERT INTO Likes (user_id, post_id, comment_id) VALUES
+(2, 1, NULL),
+(3, 1, NULL),
+(4, 1, NULL),
+(1, 2, NULL),
+(3, 2, NULL),
+(5, 3, NULL),
+(1, 4, NULL),
+(2, 5, NULL),
+(3, 6, NULL),
+(4, 7, NULL),
+(1, NULL, 1),
+(3, NULL, 1),
+(2, NULL, 3),
+(4, NULL, 5),
+(5, NULL, 7);
