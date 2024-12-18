@@ -5,22 +5,36 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import { AuthProvider } from "./context/AuthContext";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <QueryClientProvider client={queryClient}></QueryClientProvider>
-        <ToastContainer position="top-right" autoClose={3000} />
-        <Suspense fallback={"Loading"}>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-          </Routes>
-        </Suspense>
-      </div>
+      <AuthProvider>
+        <div>
+          <QueryClientProvider client={queryClient}>
+            <ToastContainer position="top-right" autoClose={3000} />
+            <Suspense fallback={"Loading"}>
+              <Routes>
+                <Route
+                  path={"/someResource"}
+                  element={
+                    <ProtectedRoutes>
+                      <div>Hi I am Protected</div>
+                    </ProtectedRoutes>
+                  }
+                />
+
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+              </Routes>
+            </Suspense>
+          </QueryClientProvider>
+        </div>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

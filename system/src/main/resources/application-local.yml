@@ -1,0 +1,39 @@
+app:
+  jwtSecret: d77bde9e6a0a41b0a88943f983f4099a0505fecd0c429e4e694ef71dd1b7f5dd0b4214556cb3bc760c1ad63230fe36465494c3b9aee539fb40e3673f627db1221d84f2ee4761f69b74798d8e49c0be9888b48092c237b503ee08ae456b7aa7bef8cfdf7856209292295cf3ce46aa04af04576d4f3d4894cc339285f39431d2150f126079469a7e567bc17fd7cfb08dedf4011c24fba357973803ca878a633216e77095a2266c7bcad808fd8b33ef2737a5df147141d4f28f3f664bed96ed6711e3d7d8b5a787343ab6e42e80db137741616de1905e49df6b5df4666962bf2dbf69e8bd050713f1c53f5b36a7414380d76066e6906bee453b6fa76cbdf5371cb7
+  jwtExpiration: 86400000
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure:
+            jdbc:
+              DataSourceInitializer: DEBUG
+            orm:
+              jpa: DEBUG
+        jdbc:
+          datasource:
+            init:
+              ScriptUtils: DEBUG
+
+server:
+  port: 8080
+
+spring:
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: true
+  datasource:
+    initialize: true
+    url: jdbc:h2:mem:spotlight;MODE=MySQL;DB_CLOSE_DELAY=-1
+    username: user
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
