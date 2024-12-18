@@ -1,14 +1,16 @@
 import Form from "../components/Form";
 import { ComponentProps } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../query/keys";
 import { QUERY_FUNCTIONS } from "../query/functions";
 import { LoginRequest } from "../types/auth";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Login() {
+  const { setToken } = useAuth();
+  const navigate = useNavigate();
   const { mutate } = useMutation({
     mutationKey: [QUERY_KEYS.login],
     mutationFn: (request: LoginRequest) => {
@@ -17,8 +19,12 @@ export default function Login() {
       });
     },
     onSuccess: (data) => {
-      toast.success("Successfully logged in");
-      console.dir(data);
+      if (!data.accessToken) {
+        //TODO: add some custom logging here
+        return;
+      }
+      setToken(data.accessToken);
+      navigate("/someResource");
     },
   });
   const inputs: ComponentProps<typeof Form>["inputProps"] = [

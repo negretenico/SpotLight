@@ -1,18 +1,29 @@
 import Form from "../components/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ComponentProps } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../query/keys";
 import { QUERY_FUNCTIONS } from "../query/functions";
 import { RegisterRequest } from "../types/auth";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Signup() {
+  const { setToken } = useAuth();
+  const navigate = useNavigate();
   const { mutate } = useMutation({
     mutationKey: [QUERY_KEYS.register],
     mutationFn: (registerInformation: RegisterRequest) => {
       return QUERY_FUNCTIONS.register({
         registerInformation: registerInformation,
       });
+    },
+    onSuccess: (data) => {
+      if (!data.accessToken) {
+        //TODO: add some custom logging here
+        return;
+      }
+      setToken(data.accessToken);
+      navigate("/someResource");
     },
   });
   const inputs: ComponentProps<typeof Form>["inputProps"] = [
