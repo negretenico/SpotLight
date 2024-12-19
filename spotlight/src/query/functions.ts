@@ -1,5 +1,6 @@
 import { axiosInstance } from "../config/axiosConfig";
 import { FeedRequest, FeedResponse } from "../types/feed";
+import { AxiosResponse } from "axios";
 
 const feed = async (token: string) => {
   const params = new URLSearchParams({
@@ -8,11 +9,12 @@ const feed = async (token: string) => {
     sort: "createdAt",
   });
   try {
-    const resp: FeedResponse = await axiosInstance.get<
-      FeedRequest,
-      FeedResponse
-    >("/api/feed", { params, headers: { Authorization: `Bearer ${token}` } });
-    return resp;
+    const resp: AxiosResponse<FeedRequest, FeedResponse> =
+      await axiosInstance.get("/api/feed", {
+        params,
+        headers: { Authorization: `Bearer ${token}` },
+      });
+    return resp.data;
   } catch (e) {
     throw new Error(`${e}`);
   }

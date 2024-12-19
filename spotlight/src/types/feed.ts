@@ -1,10 +1,11 @@
 import { Nullish } from "./util";
 
-type ContentEntity = {
+export type PostType = {
   content: string;
   postId: number;
   username: string;
   createdAt: string;
+  imageUrl: Nullish<string>;
   commentCount: number;
   likeCount: number;
 };
@@ -23,7 +24,7 @@ type Sort = {
 };
 
 export type FeedResponse = {
-  content?: Nullish<Array<ContentEntity>>;
+  content?: Nullish<Array<PostType>>;
   pageable: Pageable;
   last: boolean;
   totalPages: number;
