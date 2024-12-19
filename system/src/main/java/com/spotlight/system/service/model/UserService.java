@@ -4,6 +4,8 @@ import com.spotlight.system.model.User;
 import com.spotlight.system.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
     UserRepository userRepository;
@@ -18,6 +20,10 @@ public class UserService {
 
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     public User save(User user) {
