@@ -1,20 +1,20 @@
-import Form from "../components/Form";
+import Form from "../../components/Form";
 import { ComponentProps } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { QUERY_KEYS } from "../query/keys";
-import { QUERY_FUNCTIONS } from "../query/functions";
-import { LoginRequest } from "../types/auth";
+import { MUTATION_KEYS } from "../../mutations/keys";
+import { MUTATION_FUNCTIONS } from "../../mutations/functions";
+import { LoginRequest } from "../../types/auth";
 import "react-toastify/dist/ReactToastify.css";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function Login() {
   const { setToken } = useAuth();
   const navigate = useNavigate();
   const { mutate } = useMutation({
-    mutationKey: [QUERY_KEYS.login],
+    mutationKey: [MUTATION_KEYS.login],
     mutationFn: (request: LoginRequest) => {
-      return QUERY_FUNCTIONS.login({
+      return MUTATION_FUNCTIONS.login({
         loginRequest: request,
       });
     },
@@ -24,7 +24,7 @@ export default function Login() {
         return;
       }
       setToken(data.accessToken);
-      navigate("/someResource");
+      navigate("/");
     },
   });
   const inputs: ComponentProps<typeof Form>["inputProps"] = [
