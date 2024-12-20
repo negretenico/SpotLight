@@ -12,8 +12,10 @@ export default function Feed() {
   });
   return (
     <div className="grid grid-cols-12">
-      <div className="col-start-5 col-span-8">
-        <Posts posts={data.content} />
+      <div className="col-start-4 col-span-6">
+        <div className="grid grid-cols-1 gap-4">
+          <Posts posts={data.content} />
+        </div>
       </div>
     </div>
   );

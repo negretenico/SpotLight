@@ -53,9 +53,12 @@ const register = async ({
     errorMsg: "Issues sigining up",
   });
 };
+const updateLikesOnPost = async () => {};
 
 export const MUTATION_FUNCTIONS = {
   login: login,
   register: register,
   logout: logout,
+  likePost: updateLikesOnPost,
+  dislikePost: updateLikesOnPost,
 };

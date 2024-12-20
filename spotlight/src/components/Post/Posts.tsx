@@ -7,12 +7,11 @@ export default function Posts({ posts }: PostsProps) {
   if (!posts || !posts.length) {
     return <></>;
   }
-  debugger;
   return (
-    <div>
+    <>
       {posts.map((post: PostType, idx) => (
         <Post key={`Post-${idx}`} {...post} />
       ))}
-    </div>
+    </>
   );
 }

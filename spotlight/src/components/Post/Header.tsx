@@ -1,7 +1,7 @@
 import { PostType } from "../../types/feed";
 
 type PostHeaderProps = Pick<PostType, "username" | "createdAt">;
-export default function PostHeader({ username, createdAt }: PostHeaderProps) {
+export default function Header({ username, createdAt }: PostHeaderProps) {
   const formatTime = (createdAt: string) => {
     const timeUnits: [number, string][] = [
       [1000, "sec"],
@@ -27,22 +27,26 @@ export default function PostHeader({ username, createdAt }: PostHeaderProps) {
     return "now";
   };
   return (
-    <div className="flex items-center gap-2">
-      <svg
-        className="h-8 w-8 text-slate-500"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-      <div className="font-semibold">{username}</div>
-      <div className="font-normal">{formatTime(createdAt)}</div>
+    <div className="flex items-center gap-3">
+      <div className="w-8">
+        <svg
+          className="h-8 w-8 text-slate-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="font-semibold">{username}</div>
+        <div className="font-normal">{formatTime(createdAt)}</div>
+      </div>
     </div>
   );
 }
