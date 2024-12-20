@@ -11,6 +11,8 @@ public interface PostSummary {
 
     String getUsername();
 
+    String getImageUrl();
+
     Integer getLikeCount();
 
     Integer getCommentCount();

@@ -16,6 +16,7 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
                     p.content AS content,
                     p.created_at AS createdAt,
                     u.username AS username,
+                    p.image as imageUrl,
                     (SELECT COUNT(1) FROM Likes l WHERE l.post_id = p.id) AS likeCount,
                     (SELECT COUNT(1) FROM Comment c WHERE c.post_id = p.id) AS commentCount
                 FROM Post p

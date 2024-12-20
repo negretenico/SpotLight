@@ -41,6 +41,7 @@ public class WebSecurityConfig {
                         auth
                                 .requestMatchers("/h2-console/**").permitAll() // Allow access to H2 Console
                                 .requestMatchers("/api/auth/**").permitAll()
+                                .requestMatchers("/images/**").permitAll() // Allow access to images
                                 .anyRequest().authenticated()
                 );
 

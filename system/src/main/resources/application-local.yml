@@ -4,8 +4,14 @@ app:
 
 logging:
   level:
+    com:
+      spotlight:
+        system:
+          config:
+            auth: DEBUG
     org:
       springframework:
+        security: DEBUG
         boot:
           autoconfigure:
             jdbc:
@@ -24,6 +30,9 @@ spring:
   sql:
     init:
       mode: always
+  web:
+    resources:
+      static-locations: classpath:/static/,file:images/
   h2:
     console:
       enabled: true
