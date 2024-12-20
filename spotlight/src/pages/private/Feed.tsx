@@ -11,8 +11,8 @@ export default function Feed() {
     queryFn: () => QUERY_FUNCTIONS.feed(token ?? ""),
   });
   return (
-    <div className="grid grid-cols-6">
-      <div className="col-start-2 col-span-4">
+    <div className="grid grid-cols-12">
+      <div className="col-start-5 col-span-8">
         <Posts posts={data.content} />
       </div>
     </div>

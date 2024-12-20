@@ -13,7 +13,7 @@ export default function Post({
   imageUrl,
 }: PostProps) {
   return (
-    <div>
+    <div className={"grid grid-rows-3 grid-cols-1 gap-1"}>
       <PostHeader username={username} createdAt={createdAt} />
       <PostContent content={content} imageUrl={imageUrl} />
       <PostFooter commentCount={commentCount} likeCount={likeCount} />
