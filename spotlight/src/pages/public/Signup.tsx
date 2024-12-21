@@ -1,19 +1,19 @@
-import Form from "../components/Form";
+import Form from "../../components/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { ComponentProps } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { QUERY_KEYS } from "../query/keys";
-import { QUERY_FUNCTIONS } from "../query/functions";
-import { RegisterRequest } from "../types/auth";
-import { useAuth } from "../hooks/useAuth";
+import { MUTATION_KEYS } from "../../mutations/keys";
+import { MUTATION_FUNCTIONS } from "../../mutations/functions";
+import { RegisterRequest } from "../../types/auth";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function Signup() {
   const { setToken } = useAuth();
   const navigate = useNavigate();
   const { mutate } = useMutation({
-    mutationKey: [QUERY_KEYS.register],
+    mutationKey: [MUTATION_KEYS.register],
     mutationFn: (registerInformation: RegisterRequest) => {
-      return QUERY_FUNCTIONS.register({
+      return MUTATION_FUNCTIONS.register({
         registerInformation: registerInformation,
       });
     },
@@ -23,7 +23,7 @@ export default function Signup() {
         return;
       }
       setToken(data.accessToken);
-      navigate("/someResource");
+      navigate("/");
     },
   });
   const inputs: ComponentProps<typeof Form>["inputProps"] = [
