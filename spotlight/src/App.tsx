@@ -8,6 +8,7 @@ import Signup from "./pages/public/Signup";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import { AuthProvider } from "./context/AuthContext";
 import Feed from "./pages/private/Feed";
+import Profile from "./pages/private/Profile";
 
 export const queryClient = new QueryClient();
 
@@ -30,6 +31,14 @@ function App() {
                 />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route
+                  path="/profile/:username"
+                  element={
+                    <ProtectedRoutes>
+                      <Profile />
+                    </ProtectedRoutes>
+                  }
+                />
               </Routes>
             </Suspense>
           </QueryClientProvider>

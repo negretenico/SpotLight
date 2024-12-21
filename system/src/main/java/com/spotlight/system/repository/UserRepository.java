@@ -1,6 +1,6 @@
 package com.spotlight.system.repository;
 
-import com.spotlight.system.model.User;
+import com.spotlight.system.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +13,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Boolean existsByEmail(String email);
 
     boolean existsByUsername(String username);
+
 }

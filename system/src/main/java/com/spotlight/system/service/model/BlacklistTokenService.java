@@ -1,6 +1,6 @@
 package com.spotlight.system.service.model;
 
-import com.spotlight.system.model.BlacklistToken;
+import com.spotlight.system.model.utils.BlacklistToken;
 import com.spotlight.system.repository.BlacklistRepository;
 import com.spotlight.system.service.jwt.JWTService;
 import org.springframework.stereotype.Service;

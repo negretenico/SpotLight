@@ -1,7 +1,7 @@
 package com.spotlight.system.repository;
 
-import com.spotlight.system.model.Post;
-import com.spotlight.system.model.PostSummary;
+import com.spotlight.system.model.post.Post;
+import com.spotlight.system.model.post.PostSummary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
 package com.spotlight.system.service.model;
 
-import com.spotlight.system.model.PostSummary;
+import com.spotlight.system.model.post.PostSummary;
 import com.spotlight.system.repository.PostRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,7 +1,7 @@
 package com.spotlight.system.service;
 
-import com.spotlight.system.model.User;
 import com.spotlight.system.model.auth.AuthenticationRequest;
+import com.spotlight.system.model.user.User;
 import com.spotlight.system.model.utils.RegistrationStatus;
 import com.spotlight.system.service.jwt.JWTService;
 import com.spotlight.system.service.model.UserService;

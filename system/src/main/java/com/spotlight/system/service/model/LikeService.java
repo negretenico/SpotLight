@@ -1,7 +1,7 @@
 package com.spotlight.system.service.model;
 
-import com.spotlight.system.model.Likes;
 import com.spotlight.system.model.likes.LikeRequest;
+import com.spotlight.system.model.likes.Likes;
 import com.spotlight.system.repository.LikesRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

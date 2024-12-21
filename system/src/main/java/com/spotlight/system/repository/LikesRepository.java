@@ -1,6 +1,6 @@
 package com.spotlight.system.repository;
 
-import com.spotlight.system.model.Likes;
+import com.spotlight.system.model.likes.Likes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

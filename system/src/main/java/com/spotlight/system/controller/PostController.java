@@ -1,8 +1,8 @@
 package com.spotlight.system.controller;
 
-import com.spotlight.system.model.Post;
-import com.spotlight.system.model.User;
+import com.spotlight.system.model.post.Post;
 import com.spotlight.system.model.post.PostRequest;
+import com.spotlight.system.model.user.User;
 import com.spotlight.system.service.model.PostService;
 import com.spotlight.system.service.model.UserService;
 import org.springframework.http.HttpStatus;
