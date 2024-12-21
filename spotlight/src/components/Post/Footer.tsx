@@ -5,17 +5,36 @@ import { MUTATION_KEYS } from "../../mutations/keys";
 import { MUTATION_FUNCTIONS } from "../../mutations/functions";
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import Modal from "./Modal";
+import { CommentRequest } from "../../types/comment";
 
-type Footer = Pick<PostType, "likeCount" | "commentCount" | "postId">;
+type Footer = Pick<
+  PostType,
+  | "likeCount"
+  | "commentCount"
+  | "postId"
+  | "username"
+  | "content"
+  | "imageUrl"
+  | "createdAt"
+>;
 export default function PostFooter({
   likeCount,
+  content,
+  username,
+  createdAt,
+  imageUrl,
   commentCount,
   postId,
 }: Footer) {
   const [liked, setLiked] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = () => {
+    setShowModal(false);
+  };
   const { token } = useAuth();
   const { mutate: updateLikesOnPost } = useMutation({
-    mutationKey: MUTATION_KEYS.likePost,
+    mutationKey: MUTATION_KEYS.updateLikesOnPost,
     mutationFn: async () => {
       await MUTATION_FUNCTIONS.likePost({
         likeRequest: {
@@ -27,6 +46,19 @@ export default function PostFooter({
         options: { headers: { Authorization: `Bearer ${token}` } },
       });
       setLiked((prev) => !prev);
+    },
+  });
+  const { mutate: addComment } = useMutation({
+    mutationKey: MUTATION_KEYS.addComment,
+    mutationFn: async (content: string) => {
+      const payload: CommentRequest = {
+        content: content,
+        postId: postId,
+      };
+      await MUTATION_FUNCTIONS.addComment({
+        request: payload,
+        options: { headers: { Authorization: `Bearer ${token}` } },
+      });
     },
   });
   return (
@@ -60,7 +92,9 @@ export default function PostFooter({
       </div>
       <div>
         <Icon
-          onClick={() => {}}
+          onClick={() => {
+            setShowModal(true);
+          }}
           count={commentCount}
           icon={
             <svg
@@ -77,6 +111,17 @@ export default function PostFooter({
           }
         />
       </div>
+      <Modal
+        onSubmit={addComment}
+        closeModal={closeModal}
+        enabled={showModal}
+        post={{
+          imageUrl: imageUrl,
+          username: username,
+          content: content,
+          createdAt: createdAt,
+        }}
+      />
     </div>
   );
 }

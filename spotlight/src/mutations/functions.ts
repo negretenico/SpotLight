@@ -8,6 +8,7 @@ import {
 import { Neverish } from "../types/util";
 import axios, { AxiosResponse } from "axios";
 import { LikeRequest, LikeResponse } from "../types/like";
+import { CommentRequest, CommentResponse } from "../types/comment";
 
 const postOrError = async <ResponseBody, RequestBody>({
   request: { path, body, options },
@@ -66,11 +67,23 @@ const updateLikesOnPost = async ({
     errorMsg: `Issue liking post with id  ${likeRequest.like.postId}`,
   });
 };
-
+const addComment = async ({
+  request,
+  options,
+}: {
+  request: CommentRequest;
+  options: any;
+}) => {
+  return postOrError<Neverish<CommentResponse>, CommentRequest>({
+    request: { path: "/api/comment", body: request, options: options },
+    errorMsg: `Issue liking post with id  ${request.postId}`,
+  });
+};
 export const MUTATION_FUNCTIONS = {
   login: login,
   register: register,
   logout: logout,
   likePost: updateLikesOnPost,
   dislikePost: updateLikesOnPost,
+  addComment: addComment,
 };

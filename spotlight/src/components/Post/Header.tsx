@@ -1,6 +1,6 @@
 import { PostType } from "../../types/feed";
 
-type PostHeaderProps = Pick<PostType, "username" | "createdAt">;
+type PostHeaderProps = Partial<Pick<PostType, "username" | "createdAt">>;
 export default function Header({ username, createdAt }: PostHeaderProps) {
   const formatTime = (createdAt: string) => {
     const timeUnits: [number, string][] = [
@@ -45,7 +45,9 @@ export default function Header({ username, createdAt }: PostHeaderProps) {
       </div>
       <div className="flex items-center gap-2">
         <div className="font-semibold">{username}</div>
-        <div className="font-normal">{formatTime(createdAt)}</div>
+        <div className="font-normal">
+          {createdAt ? formatTime(createdAt) : ""}
+        </div>
       </div>
     </div>
   );

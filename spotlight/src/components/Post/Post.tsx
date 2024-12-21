@@ -19,9 +19,13 @@ export default function Post({
         <Header username={username} createdAt={createdAt} />
         <PostContent content={content} imageUrl={imageUrl} />
         <PostFooter
+          createdAt={createdAt}
+          content={content}
+          imageUrl={imageUrl}
           commentCount={commentCount}
           likeCount={likeCount}
           postId={postId}
+          username={username}
         />
       </div>
     </div>

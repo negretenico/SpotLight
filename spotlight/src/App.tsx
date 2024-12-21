@@ -9,7 +9,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 import { AuthProvider } from "./context/AuthContext";
 import Feed from "./pages/private/Feed";
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 function App() {
   return (
