@@ -1,4 +1,4 @@
-package com.spotlight.system.model;
+package com.spotlight.system.model.followers;
 
 import jakarta.persistence.*;
 import lombok.Data;

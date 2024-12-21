@@ -1,7 +1,7 @@
 package com.spotlight.system.controller;
 
-import com.spotlight.system.model.PostSummary;
-import com.spotlight.system.model.User;
+import com.spotlight.system.model.post.PostSummary;
+import com.spotlight.system.model.user.User;
 import com.spotlight.system.service.model.FeedService;
 import com.spotlight.system.service.model.UserService;
 import org.springframework.data.domain.Page;

@@ -1,6 +1,6 @@
 package com.spotlight.system.service.model;
 
-import com.spotlight.system.model.User;
+import com.spotlight.system.model.user.User;
 import com.spotlight.system.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +25,7 @@ public class UserService {
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
 
     public User save(User user) {
         return userRepository.save(user);

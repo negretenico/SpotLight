@@ -1,6 +1,6 @@
 package com.spotlight.system.service.model;
 
-import com.spotlight.system.model.Post;
+import com.spotlight.system.model.post.Post;
 import com.spotlight.system.model.post.PostRequest;
 import com.spotlight.system.repository.PostRepository;
 import org.springframework.stereotype.Service;

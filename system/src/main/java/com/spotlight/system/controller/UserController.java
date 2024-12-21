@@ -1,35 +1,40 @@
 package com.spotlight.system.controller;
 
-import com.spotlight.system.model.likes.LikeRequest;
 import com.spotlight.system.model.user.User;
-import com.spotlight.system.service.model.LikeService;
+import com.spotlight.system.model.user.UserResponse;
 import com.spotlight.system.service.model.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping(value = "/api/like")
-public class LikeController {
-    UserService userService;
-    LikeService likeService;
+@RequestMapping(value = "/api/user")
+public class UserController {
+    private final UserService userService;
 
-    public LikeController(UserService userService, LikeService likeService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.likeService = likeService;
     }
 
-    @PostMapping
-    public ResponseEntity<String> updateLikes(@RequestBody LikeRequest likeRequest) {
+    @GetMapping
+    public ResponseEntity<UserResponse> getUser() {
         // Extract userId from the JWT
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findByUsername(username).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User is not available"));
-        likeService.updateLikes(likeRequest, user.getId().intValue());
-        return ResponseEntity.ok("Updating likes");
+        return ResponseEntity.ok(UserResponse.builder()
+                .id(user.getId())
+                .posts(user.getPosts())
+                .comments(user.getComments())
+                .likes(user.getLikes())
+                .fullName(user.getFullName())
+                .email(user.getEmail())
+                .following(user.getFollowing())
+                .followers(user.getFollowers())
+                .username(user.getUsername())
+                .build());
     }
 }

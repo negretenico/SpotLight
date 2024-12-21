@@ -1,4 +1,4 @@
-package com.spotlight.system.model;
+package com.spotlight.system.model.likes;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,21 +7,23 @@ import java.sql.Timestamp;
 
 @Entity
 @Data
-@Table(name = "Comment")
-public class Comment {
+@Table(name = "likes")
+public class Likes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "content")
-    private String content;
+    @Column(name = "id")
+    int id;
 
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @Column(name = "post_id", nullable = false)
+    @Column(name = "post_id")
     private Integer postId;
+
+    @Column(name = "comment_id")
+    private Integer commentId;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
+
 }

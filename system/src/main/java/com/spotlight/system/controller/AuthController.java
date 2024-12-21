@@ -1,9 +1,9 @@
 package com.spotlight.system.controller;
 
-import com.spotlight.system.model.User;
 import com.spotlight.system.model.auth.AuthenticationLogoutRequest;
 import com.spotlight.system.model.auth.AuthenticationRequest;
 import com.spotlight.system.model.auth.AuthenticationResponse;
+import com.spotlight.system.model.user.User;
 import com.spotlight.system.model.utils.RegistrationStatus;
 import com.spotlight.system.service.AuthenticateSaveService;
 import com.spotlight.system.service.model.LogoutService;

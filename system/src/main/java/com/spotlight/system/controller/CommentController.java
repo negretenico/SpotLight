@@ -1,8 +1,8 @@
 package com.spotlight.system.controller;
 
-import com.spotlight.system.model.Comment;
-import com.spotlight.system.model.User;
+import com.spotlight.system.model.comment.Comment;
 import com.spotlight.system.model.comment.CommentRequest;
+import com.spotlight.system.model.user.User;
 import com.spotlight.system.service.model.CommentService;
 import com.spotlight.system.service.model.UserService;
 import org.springframework.http.HttpStatus;

@@ -2,6 +2,7 @@ CREATE TABLE Users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) UNIQUE NOT NULL,
     username VARCHAR(50) UNIQUE NOT NULL,
+    full_name TEXT NOT NULL,
     password TEXT NOT NULL
 );
 

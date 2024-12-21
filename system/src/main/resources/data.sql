@@ -1,15 +1,15 @@
 -- Users
-INSERT INTO Users (email, username, password) VALUES
-('john.doe@email.com', 'johndoe', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
-('jane.smith@email.com', 'janesmith', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
-('mike.wilson@email.com', 'mikewilson', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
-('sarah.parker@email.com', 'sarahp', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
-('alex.turner@email.com', 'alexturner', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
-('emily.white@email.com', 'emilywhite', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
-('david.brown@email.com', 'davidbrown', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
-('lisa.garcia@email.com', 'lisagarcia', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
-('chris.lee@email.com', 'chrislee', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
-('amanda.taylor@email.com', 'amandataylor', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq');
+INSERT INTO Users (email, username, full_name, password) VALUES
+('john.doe@email.com', 'johndoe', 'John Doe','$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
+('jane.smith@email.com', 'janesmith', 'Jane Smith','$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
+('mike.wilson@email.com', 'mikewilson', 'Mike Wilson','$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
+('sarah.parker@email.com', 'sarahp', 'Sarah P', '$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
+('alex.turner@email.com', 'alexturner', 'Alex Turner','$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
+('emily.white@email.com', 'emilywhite', 'Emily White','$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
+('david.brown@email.com', 'davidbrown', 'David Brown','$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
+('lisa.garcia@email.com', 'lisagarcia', 'Lisa Garcia','$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
+('chris.lee@email.com', 'chrislee', 'Chris Lee','$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq'),
+('amanda.taylor@email.com', 'amandataylor', 'Amanda Taylor','$2a$12$N.lAZt0y1tYNqMEZc2bsuej6uLYkuNvpBRAwH.mZtWj5kyzodJJwq');
 -- Followers
 INSERT INTO Followers (follower_id, following_id) VALUES
 (1, 2), (1, 3), (1, 4), (1, 5),

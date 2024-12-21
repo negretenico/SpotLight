@@ -1,6 +1,6 @@
 package com.spotlight.system.service.model;
 
-import com.spotlight.system.model.Comment;
+import com.spotlight.system.model.comment.Comment;
 import com.spotlight.system.model.comment.CommentRequest;
 import com.spotlight.system.repository.CommentRepository;
 import org.springframework.stereotype.Service;
