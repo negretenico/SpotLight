@@ -5,7 +5,7 @@ import { MUTATION_KEYS } from "../../mutations/keys";
 import { MUTATION_FUNCTIONS } from "../../mutations/functions";
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
-import Modal from "./Modal";
+import Modal from "../Modal";
 import { CommentRequest } from "../../types/comment";
 
 type Footer = Pick<

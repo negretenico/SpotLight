@@ -1,24 +1,27 @@
-import Header from "./Header";
-import PostContent from "./Content";
-import { PostType } from "../../types/feed";
+import Header from "./Post/Header";
+import PostContent from "./Post/Content";
+import { PostType } from "../types/feed";
 import { useRef, useState } from "react";
 
 type ModalProps = {
   enabled: boolean;
   closeModal: () => void;
   onSubmit: (content: string) => void;
-  post: Pick<PostType, "username" | "createdAt" | "content" | "imageUrl">;
+  title?: string;
+  placeHolder?: string;
+  post?: Pick<PostType, "username" | "createdAt" | "content" | "imageUrl">;
 };
 export default function Modal({
   enabled,
   closeModal,
+  title,
   onSubmit,
-  post: { username, createdAt, content, imageUrl },
+  placeHolder,
+  post,
 }: ModalProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
   if (!enabled) return <></>;
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const replyText = inputRef.current?.value?.trim() || "";
@@ -30,7 +33,7 @@ export default function Modal({
       closeModal();
     }
   };
-
+  const { username, createdAt, content, imageUrl } = post ?? {};
   return (
     <div className="fixed inset-0 z-10 overflow-y-auto">
       <div
@@ -48,16 +51,19 @@ export default function Modal({
                 Cancel
               </a>
               <div className={"col-start-6 col-span-6"}>
-                <h4 className="text-lg font-medium text-gray-800">Reply</h4>
+                <h4 className="text-lg font-medium text-gray-800">
+                  {title ?? "Reply"}
+                </h4>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-200 my-4">
-            <div className="mt-4">
-              <Header username={username} createdAt={createdAt} />
-              <PostContent content={content} imageUrl={imageUrl} />
-            </div>
-
+            {content && (
+              <div className="mt-4">
+                <Header username={username} createdAt={createdAt} />
+                <PostContent content={content} imageUrl={imageUrl} />
+              </div>
+            )}
             <div className="mt-4">
               <form onSubmit={handleSubmit} className="flex items-center gap-3">
                 <svg
@@ -76,7 +82,7 @@ export default function Modal({
                 <div className="flex-grow relative">
                   <input
                     ref={inputRef}
-                    placeholder={`Reply to ${username}`}
+                    placeholder={placeHolder ?? `Reply to ${username}`}
                     onChange={(e) => setIsActive(!!e.target.value?.trim())}
                     className="w-full p-2 pr-24 border border-gray-200 rounded focus:outline-none focus:border-blue-500 transition-colors"
                   />
