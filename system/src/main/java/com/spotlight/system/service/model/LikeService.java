@@ -1,7 +1,6 @@
 package com.spotlight.system.service.model;
 
 import com.spotlight.system.model.Likes;
-import com.spotlight.system.model.User;
 import com.spotlight.system.model.likes.LikeRequest;
 import com.spotlight.system.repository.LikesRepository;
 import jakarta.transaction.Transactional;
@@ -24,14 +23,12 @@ public class LikeService {
         if (!likeRequest.isLiked()) {
             Likes likeToSave = new Likes();
             likeToSave.setCreatedAt(Timestamp.from(Instant.now()));
-            likeToSave.setPost(likeRequest.getLike().getPost());
-            User u = new User();
-            u.setId((long) userId);
-            likeToSave.setUser(u);
+            likeToSave.setPostId(likeRequest.getLike().getPostId());
+            likeToSave.setUserId((long) userId);
             save(likeToSave);
             return;
         }
-        removeLike(likeRequest.getLike().getPost().getId(), userId);
+        removeLike(likeRequest.getLike().getPostId(), userId);
 
     }
 
@@ -41,7 +38,7 @@ public class LikeService {
 
     @Transactional
     private void removeLike(int postId, int userId) {
-        Optional<Likes> possibleLikes = likesRepository.getByUserIdAndParentId(postId, userId);
+        Optional<Likes> possibleLikes = likesRepository.getByUserIdAndParentId((long) userId, postId);
         possibleLikes.ifPresent(likes -> {
             likesRepository.deleteById(likes.getId());
             likesRepository.flush();

@@ -1,8 +1,6 @@
 package com.spotlight.system.service.model;
 
 import com.spotlight.system.model.Comment;
-import com.spotlight.system.model.Post;
-import com.spotlight.system.model.User;
 import com.spotlight.system.model.comment.CommentRequest;
 import com.spotlight.system.repository.CommentRepository;
 import org.springframework.stereotype.Service;
@@ -23,12 +21,8 @@ public class CommentService {
     public Comment save(CommentRequest commentRequest, int userId) {
         Comment comment = new Comment();
         comment.setContent(commentRequest.getContent());
-        Post post = new Post();
-        post.setId(commentRequest.getPostId());
-        comment.setPost(post);
-        User user = new User();
-        user.setId((long) userId);
-        comment.setUser(user);
+        comment.setPostId(commentRequest.getPostId());
+        comment.setUserId((long) userId);
         comment.setCreatedAt(Timestamp.from(Instant.now()));
         return commentRepository.save(comment);
     }

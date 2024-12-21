@@ -19,19 +19,30 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    // Optional: Add these if you want to easily access user's posts, comments, likes, etc.
-    @OneToMany(mappedBy = "user")
-    private List<Post> posts;
 
-    @OneToMany(mappedBy = "user")
-    private List<Comment> comments;
+    // Storing only the IDs instead of mapped entities
+    @ElementCollection
+    @CollectionTable(name = "user_post_ids", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "post_id")
+    private List<Long> postIds;
 
-    @OneToMany(mappedBy = "user")
-    private List<Likes> likes;
+    @ElementCollection
+    @CollectionTable(name = "user_comment_ids", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "comment_id")
+    private List<Long> commentIds;
 
-    @OneToMany(mappedBy = "follower")
-    private List<Followers> following;
+    @ElementCollection
+    @CollectionTable(name = "user_like_ids", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "like_id")
+    private List<Long> likeIds;
 
-    @OneToMany(mappedBy = "following")
-    private List<Followers> followers;
+    @ElementCollection
+    @CollectionTable(name = "user_following_ids", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "following_id")
+    private List<Long> followingIds;
+
+    @ElementCollection
+    @CollectionTable(name = "user_follower_ids", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "follower_id")
+    private List<Long> followerIds;
 }

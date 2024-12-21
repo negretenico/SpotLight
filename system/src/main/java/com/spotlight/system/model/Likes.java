@@ -14,17 +14,14 @@ public class Likes {
     @Column(name = "id")
     int id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post post;
+    @Column(name = "post_id")
+    private Integer postId;
 
-    @ManyToOne
-    @JoinColumn(name = "comment_id")
-    private Comment comment;
+    @Column(name = "comment_id")
+    private Integer commentId;
 
     @Column(name = "created_at")
     private Timestamp createdAt;

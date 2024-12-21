@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Data
@@ -17,18 +16,12 @@ public class Comment {
     @Column(name = "content")
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post post;
+    @Column(name = "post_id", nullable = false)
+    private Integer postId;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
-
-    // Optional: Add this if you want to easily access likes on a comment
-    @OneToMany(mappedBy = "comment")
-    private List<Likes> likes;
 }

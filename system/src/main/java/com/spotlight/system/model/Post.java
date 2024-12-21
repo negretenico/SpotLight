@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Data
 @Entity
@@ -20,18 +19,10 @@ public class Post {
     @Column(name = "image")
     private String imgUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
-
-    // Optional: Add these if you want to easily access comments and likes on a post
-    @OneToMany(mappedBy = "post")
-    private List<Comment> comments;
-
-    @OneToMany(mappedBy = "post")
-    private List<Likes> likes;
 
 }

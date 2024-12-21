@@ -11,11 +11,10 @@ public class Followers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "follower_id")
-    private User follower;
 
-    @ManyToOne
-    @JoinColumn(name = "following_id")
-    private User following;
+    @Column(name = "follower_id", nullable = false)
+    private Long followerId;
+
+    @Column(name = "following_id", nullable = false)
+    private Long followingId;
 }

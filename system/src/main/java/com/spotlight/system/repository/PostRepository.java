@@ -16,23 +16,23 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
                     p.content AS content,
                     p.created_at AS createdAt,
                     u.username AS username,
-                    p.image as imageUrl,
-                    (SELECT COUNT(1) FROM Likes l WHERE l.post_id = p.id) AS likeCount,
-                    (SELECT COUNT(1) FROM Comment c WHERE c.post_id = p.id) AS commentCount
-                FROM Post p
-                JOIN Users u ON p.user_id = u.id
-                JOIN Followers f ON p.user_id = f.following_id
+                    p.image AS imageUrl,
+                    (SELECT COUNT(1) FROM likes l WHERE l.post_id = p.id) AS likeCount,
+                    (SELECT COUNT(1) FROM comment c WHERE c.post_id = p.id) AS commentCount
+                FROM post p
+                JOIN users u ON p.user_id = u.id
+                JOIN followers f ON p.user_id = f.following_id
                 WHERE f.follower_id = :followerId
                 ORDER BY p.created_at DESC
             """,
             countQuery = """
                         SELECT COUNT(*)
-                        FROM Post p
-                        JOIN Users u ON p.user_id = u.id
-                        JOIN Followers f ON p.user_id = f.following_id
+                        FROM post p
+                        JOIN users u ON p.user_id = u.id
+                        JOIN followers f ON p.user_id = f.following_id
                         WHERE f.follower_id = :followerId
                     """,
             nativeQuery = true)
-    Page<PostSummary> getFeed(@Param("followerId") int followerId, Pageable pageable);
+    Page<PostSummary> getFeed(@Param("followerId") Long followerId, Pageable pageable);
 
 }

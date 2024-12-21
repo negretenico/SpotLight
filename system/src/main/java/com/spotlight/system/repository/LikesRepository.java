@@ -11,8 +11,9 @@ public interface LikesRepository extends JpaRepository<Likes, Integer> {
     @Query("""
             SELECT l
             FROM Likes l
-            WHERE l.user.id = :userId AND (l.post.id = :postId )
+            WHERE l.userId = :userId AND l.postId = :postId
             """)
-    Optional<Likes> getByUserIdAndParentId(@Param("userId") int userId, @Param("postId") int postId);
+    Optional<Likes> getByUserIdAndParentId(@Param("userId") Long userId, @Param("postId") Integer postId);
+
 
 }

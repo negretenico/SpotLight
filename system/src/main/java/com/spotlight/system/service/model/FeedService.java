@@ -15,7 +15,7 @@ public class FeedService {
     }
 
     public Page<PostSummary> getFeed(int userId, Pageable pageable) {
-        return postRepository.getFeed(userId, pageable);
+        return postRepository.getFeed((long) userId, pageable);
     }
 
 }
