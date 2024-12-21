@@ -3,4 +3,5 @@ export const MUTATION_KEYS = {
   register: ["register"],
   updateLikesOnPost: ["updateLikesOnPost"],
   addComment: ["addComment"],
+  createPost: ["createPost"],
 };

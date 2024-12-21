@@ -1,16 +1,19 @@
-import { ReactElement, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { ReactElement } from "react";
+import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import Sidebar from "./Sidebar";
 
 type ProtectedRoutesProps = { children: ReactElement };
 export default function ProtectedRoutes({ children }: ProtectedRoutesProps) {
-  const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
-  useEffect(() => {
-    if (isAuthenticated) {
-      return;
-    }
-    navigate("/login", { replace: true });
-  }, [navigate, isAuthenticated]);
-  return children;
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+  return (
+    <div className={"flex"}>
+      <Sidebar />
+      {children}
+      <div />
+    </div>
+  );
 }
