@@ -4,14 +4,28 @@ import { useMutation } from "@tanstack/react-query";
 import { MUTATION_KEYS } from "../../mutations/keys";
 import { MUTATION_FUNCTIONS } from "../../mutations/functions";
 import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 
-type Footer = Pick<PostType, "likeCount" | "commentCount">;
-export default function PostFooter({ likeCount, commentCount }: Footer) {
+type Footer = Pick<PostType, "likeCount" | "commentCount" | "postId">;
+export default function PostFooter({
+  likeCount,
+  commentCount,
+  postId,
+}: Footer) {
   const [liked, setLiked] = useState(false);
+  const { token } = useAuth();
   const { mutate: updateLikesOnPost } = useMutation({
     mutationKey: MUTATION_KEYS.likePost,
     mutationFn: async () => {
-      await MUTATION_FUNCTIONS.likePost();
+      await MUTATION_FUNCTIONS.likePost({
+        likeRequest: {
+          liked: liked,
+          like: {
+            postId: postId,
+          },
+        },
+        options: { headers: { Authorization: `Bearer ${token}` } },
+      });
       setLiked((prev) => !prev);
     },
   });

@@ -3,11 +3,12 @@ import Header from "./Header";
 import PostContent from "./Content";
 import PostFooter from "./Footer";
 
-type PostProps = Omit<PostType, "postId">;
+type PostProps = PostType;
 export default function Post({
   username,
   createdAt,
   content,
+  postId,
   commentCount,
   likeCount,
   imageUrl,
@@ -17,7 +18,11 @@ export default function Post({
       <div className="flex flex-col gap-3 p-4">
         <Header username={username} createdAt={createdAt} />
         <PostContent content={content} imageUrl={imageUrl} />
-        <PostFooter commentCount={commentCount} likeCount={likeCount} />
+        <PostFooter
+          commentCount={commentCount}
+          likeCount={likeCount}
+          postId={postId}
+        />
       </div>
     </div>
   );

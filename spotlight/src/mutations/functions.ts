@@ -7,17 +7,18 @@ import {
 } from "../types/auth";
 import { Neverish } from "../types/util";
 import axios, { AxiosResponse } from "axios";
+import { LikeRequest, LikeResponse } from "../types/like";
 
 const postOrError = async <ResponseBody, RequestBody>({
-  request: { path, body },
+  request: { path, body, options },
   errorMsg,
 }: {
-  request: { path: string; body: RequestBody };
+  request: { path: string; body: RequestBody; options?: any };
   errorMsg: string;
 }): Promise<ResponseBody> => {
   try {
     const axiosResponse: AxiosResponse<ResponseBody, RequestBody> =
-      await axiosInstance.post<ResponseBody>(path, body);
+      await axiosInstance.post<ResponseBody>(path, body, options);
     return axiosResponse.data;
   } catch (error) {
     const errorMessage = axios.isAxiosError(error)
@@ -53,7 +54,18 @@ const register = async ({
     errorMsg: "Issues sigining up",
   });
 };
-const updateLikesOnPost = async () => {};
+const updateLikesOnPost = async ({
+  likeRequest,
+  options,
+}: {
+  likeRequest: LikeRequest;
+  options: any;
+}): Promise<Neverish<LikeResponse>> => {
+  return postOrError<Neverish<LikeResponse>, LikeRequest>({
+    request: { path: "/api/like", body: likeRequest, options: options },
+    errorMsg: `Issue liking post with id  ${likeRequest.like.postId}`,
+  });
+};
 
 export const MUTATION_FUNCTIONS = {
   login: login,
